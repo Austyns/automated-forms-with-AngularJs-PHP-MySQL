@@ -38,18 +38,6 @@ CREATE TABLE IF NOT EXISTS `forms` (
 -- Dumping data for table `forms`
 --
 
-INSERT INTO `forms` (`fm_id`, `fm_title`, `fm_discrip`, `fm_agency`, `registered_at`) VALUES
-(1, 'Registration Form', 'Form for reg', 0, '2016-04-14 09:26:03'),
-(2, 'Contact Form', '', 0, '2016-04-18 19:51:02'),
-(3, 'FIRS Form', 'For tax matters', 0, '2016-04-19 09:42:53'),
-(4, 'Clients Registration Form', '', 2, '2016-04-20 10:20:35'),
-(5, 'Checker Form', 'Just checking to see How this looks', 2, '2016-04-20 11:21:25'),
-(6, 'NAFDAC verr.form', 'For Nafdac Off', 1, '2016-04-20 17:49:43'),
-(7, 'Investment Form', 'For potential Investors', 2, '2016-04-20 17:54:45'),
-(8, 'Attendance Form', 'For People Alttendance', 2, '2016-04-22 19:48:35'),
-(9, 'New Form', 'Just Checking', 0, '2016-04-26 19:41:04'),
-(10, 'Again', 'Again again', 0, '2016-04-26 19:42:47');
-
 -- --------------------------------------------------------
 
 --
@@ -70,35 +58,6 @@ CREATE TABLE IF NOT EXISTS `form_fields` (
 --
 -- Dumping data for table `form_fields`
 --
-
-INSERT INTO `form_fields` (`fd_id`, `fd_agency`, `fd_title`, `fd_name`, `fd_discrip`, `fd_form`, `fd_type`, `registered_at`) VALUES
-(1, 0, 'First  Name', 'first__name', '', 1, 1, '2016-04-14 21:13:07'),
-(2, 0, 'Last Name', 'last_name', '', 1, 1, '2016-04-15 08:51:06'),
-(3, 0, 'Email', 'email', '', 1, 2, '2016-04-15 08:57:28'),
-(4, 0, 'Password', 'password', '', 1, 3, '2016-04-15 16:20:19'),
-(5, 0, 'First Name ', 'first_name_', '', 2, 2, '2016-04-18 19:51:37'),
-(6, 0, 'First Name', 'first_name', '', 3, 1, '2016-04-19 09:43:47'),
-(7, 0, 'First Name', 'first_name', 'Enter First Name', 4, 1, '2016-04-20 10:21:24'),
-(8, 0, 'Last Name', 'last_name', 'Enter Last Name', 4, 1, '2016-04-20 10:21:48'),
-(9, 0, 'Email', 'email', 'Email Address', 4, 2, '2016-04-20 10:22:11'),
-(10, 0, 'Password', 'password', 'pass', 2, 3, '2016-04-20 10:33:15'),
-(11, 0, 'Organization', 'organization', 'Name of Organization', 4, 1, '2016-04-20 10:50:38'),
-(12, 2, 'Number Of Indiginous Staff', 'number_of_indiginous_staff', 'Number of Nigerian Staff E.g 24', 4, 1, '2016-04-20 10:54:51'),
-(13, 1, 'Company Name', 'company_name', 'Your Company', 6, 1, '2016-04-20 17:51:07'),
-(14, 1, 'Contact Name', 'contact_name', 'Whatever', 6, 1, '2016-04-20 17:52:09'),
-(15, 2, 'State', 'state', 'State of Origin', 5, 4, '2016-04-22 00:42:54'),
-(16, 0, 'Sex', 'sex', '', 1, 4, '2016-04-22 01:16:46'),
-(17, 2, 'First Name', 'first_name', 'Your First Name', 8, 1, '2016-04-22 19:50:39'),
-(18, 2, 'Last Name', 'last_name', 'Last Name', 8, 1, '2016-04-22 19:50:59'),
-(19, 2, 'Address', 'address', '', 8, 5, '2016-04-22 19:51:24'),
-(20, 2, 'State', 'state', '', 8, 4, '2016-04-22 19:51:39'),
-(21, 2, 'Name of organization', 'name_of_organization', 'Name of organization', 7, 1, '2016-04-26 13:31:53'),
-(22, 2, 'Number of Shares', 'number_of_shares', 'E.g 10000', 7, 6, '2016-04-26 13:32:38'),
-(23, 0, 'mmmm', 'mmmm', '', 9, 1, '2016-04-26 23:31:33'),
-(24, 0, 'First Name', 'first_name', 'Enter First Name', 9, 1, '2016-04-27 12:09:52'),
-(25, 0, 'Name', 'name', 'XXX', 10, 1, '2016-04-27 15:19:28'),
-(26, 0, 'Email', 'email', 'EEE', 9, 2, '2016-04-27 15:21:59'),
-(27, 0, 'ass', 'ass', 'pppp', 10, 3, '2016-04-27 15:24:30');
 
 -- --------------------------------------------------------
 
@@ -159,18 +118,6 @@ CREATE TABLE IF NOT EXISTS `submited_forms` (
 --
 -- Dumping data for table `submited_forms`
 --
-
-INSERT INTO `submited_forms` (`sf_id`, `sf_client`, `sf_agency`, `sf_form`, `sf_form_field`, `sf_value`, `sf_status`, `sf_registered_at`, `sf_file`, `registered_at`) VALUES
-(1, 5, 2, 4, 7, 'Austy', '', '0000-00-00 00:00:00', '', '2016-04-26 12:39:52'),
-(2, 5, 2, 4, 8, '', '', '0000-00-00 00:00:00', '', '2016-04-26 12:39:52'),
-(3, 5, 2, 4, 9, 'austynxxx@gmail.com', '', '0000-00-00 00:00:00', '', '2016-04-26 12:39:52'),
-(4, 5, 2, 4, 11, '', '', '0000-00-00 00:00:00', '', '2016-04-26 12:39:52'),
-(5, 5, 2, 4, 12, '', '', '0000-00-00 00:00:00', '', '2016-04-26 12:39:52'),
-(6, 5, 2, 7, 21, 'Emblematik Media Solution', '', '0000-00-00 00:00:00', '', '2016-04-26 13:33:36'),
-(7, 5, 2, 7, 22, '123000', '', '0000-00-00 00:00:00', '', '2016-04-26 13:33:36'),
-(8, 0, 0, 9, 23, 'Ass', '', '0000-00-00 00:00:00', '', '2016-04-27 18:48:09'),
-(9, 0, 0, 9, 24, '', '', '0000-00-00 00:00:00', '', '2016-04-27 18:48:09'),
-(10, 0, 0, 9, 26, '', '', '0000-00-00 00:00:00', '', '2016-04-27 18:48:09');
 
 --
 -- Indexes for dumped tables
