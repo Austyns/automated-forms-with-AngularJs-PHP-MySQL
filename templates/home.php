@@ -1,0 +1,9 @@
+<div class="container col-md-10">
+<center>
+
+	<ul class="list-group">
+	  <li class="list-group-item"><a href="#available-forms" class="btn btn-block btn-info"> View Available Forms </a></li>
+	  <li class="list-group-item"><a href="#submited-forms" class="btn btn-block btn-info"> Submited  Forms </a></li>
+	</ul>
+</center>
+</div>
