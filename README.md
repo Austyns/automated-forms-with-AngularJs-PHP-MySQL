@@ -3,4 +3,4 @@ A project to help developers automate their process of form building and reduce 
 ## Setup
 - Pull or clone repo into your local dev environment
 - Create a mySQL DB auto_forms and inport the SQL file into the database created
-- Serve your application in a Xampp or wamp server
+- Serve your application in an apache Server
