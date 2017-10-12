@@ -1,160 +1,122 @@
 
-  var app =  angular.module("AutoForms",['ngRoute']); 
+var app =  angular.module("AutoForms",['ngRoute']); 
 
-    app.controller('thisCtrl', function($scope, $rootScope){
-      // $rootScope.appState = "public" ;
+app.controller('thisCtrl', function($scope, $rootScope){
 
-        });
-
+});
 
 
 
-    // Available Forms Controller
 
-    app.controller('AvailableFmCtrl', function($scope, $http, $routeParams, $location, $window, $rootScope) {
-      // var BaseServer = 'http://localhost/auto-form/' ;
-      // $rootScope.appState = 'client' ;
+// Available Forms Controller
 
-      
-      // Making Available Available Forms
+app.controller('AvailableFmCtrl', function($scope, $http, $routeParams, $location, $window, $rootScope) {
 
-       $http.get("api/ap.php?obj=forms")
-        .success(function(response) {
+    // Making Available Available Forms
 
-          $scope.fom = {};
-          $scope.fom.fm = response.data ; 
+    $http.get("api/ap.php?obj=forms").success(function(response) {
 
-        });
+        $scope.fom = {};
+        $scope.fom.fm = response.data ;
+    });
 
-        // $http.get("api/ap.php?obj=courses")
-        // .success(function(response1) {
-
-        //   $scope.cous = {};
-        //   $scope.cous.co = response1 ; 
-
-        //   });
-      
-     });
+});
 
 
 
 
 
-    app.controller('FillFormCtrl', function($scope, $http, $location, $routeParams, $window, $rootScope) {
-      // var BaseServer = 'http://localhost/auto-form//' ;
-      // $rootScope.appState = 'client' ;
+app.controller('FillFormCtrl', function($scope, $http, $location, $routeParams, $window, $rootScope) {
+    var FmNum = $routeParams.FmNum ;
+    $scope.fom = {};
+    $scope.fom.id = FmNum ;
+    // console.log(FmNum) ;
 
-      var FmNum = $routeParams.FmNum ;
-      $scope.fom = {};
-      $scope.fom.id = FmNum ;
-      // console.log(FmNum) ;
-      
-     
-      // Form Details (Actual Form Params) 
+    // Form Details (Actual Form Params) 
+    $http.get("api/ap.php?obj=FormView&fid="+FmNum)
+    .success(function(response) {
 
-          $http.get("api/ap.php?obj=FormView&fid="+FmNum)
-          .success(function(response) {
+        $scope.fields = {};
+        $scope.fields.fd = response ;
 
-              $scope.fields = {};
-              $scope.fields.fd = response ;
+    });
 
-           });
+    //  Handle For Submission Withi  This c=scope 
 
-          //  Handle For Submission Withi  This c=scope 
-
-      // create a blank object to handle form data.
-        $scope.formData = {};
-      // calling the submit function.
-        $scope.ProcessForm = function() {
+    // create a blank object to handle form data.
+    $scope.formData = {};
+    // calling the submit function.
+    $scope.ProcessForm = function() {
         // Posting data to php file
-        // alert($scope.forms) ;
         $http({
-          method  : 'POST',
-          url     : 'api/input.php?action=fms&fid='+FmNum,
-          data    : $scope.formData, //forms user object
-          headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
-         })
-          .success(function(data) {
+            method  : 'POST',
+            url     : 'api/input.php?action=fms&fid='+FmNum,
+            data    : $scope.formData, //forms user object
+            headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+        }).success(function(data) {
             if (data.errors) {
-              // Showing errors.
-             
-              // $scope.errorfname = data.errors.fname ;
-              // $scope.errorlname = data.errors.lname ;
-              // $scope.erroronames = data.errors.onames ;
-              // $scope.erroremail = data.errors.email ; 
-              // $scope.errorphone = data.errors.phone ; 
-              // $scope.errororg = data.errors.org ; 
-              // $scope.erroraddress = data.errors.address ; 
-              // $scope.errorcountry = data.errors.country ; 
-              // $scope.errorlga = data.errors.lga ; 
-              // $scope.errorstate = data.errors.state ; 
-              // $scope.errorstate = data.errors.state ; 
+                // Showing errors.
 
-            }  else {
-              $scope.message = data.message ;
-               // Force Reload on changing state
+            }else {
+                $scope.message = data.message ;
+                // Force Reload on changing state
 
-              alert($scope.message) ;
+                alert($scope.message) ;
 
-              $window.location.href = "#/available-forms/";
+                $window.location.href = "#/available-forms/";
             }
-          });
-        };
-
-     
-          
-     });
-
-    // Submited Forms Controller
-
-    app.controller('SubFormCtrl', function($scope, $http, $routeParams, $location, $window, $rootScope) {
-      // var BaseServer = 'http://localhost/auto-form//' ;
-      // $rootScope.appState = 'client' ;
-
-      
-      // Making Available Available Forms
-
-       $http.get("api/ap.php?obj=SubForms")
-        .success(function(response) {
-
-          $scope.fom = {};
-          $scope.fom.fm = response; 
-
         });
-
-      
-     });
+    };
 
 
 
+});
+
+// Submited Forms Controller
+
+app.controller('SubFormCtrl', function($scope, $http, $routeParams, $location, $window, $rootScope) {
+    // Making Available Available Forms
+
+    $http.get("api/ap.php?obj=SubForms")
+    .success(function(response) {
+
+        $scope.fom = {};
+        $scope.fom.fm = response; 
+
+    });
 
 
-    app.config( ['$routeProvider', function($routeProvider) {
+});
 
-            $routeProvider
-                .when('/', {
-                    title: 'Welcome Page',
-                    templateUrl: 'templates/home.php'
-                    // controller : 'postController' 
-                })
-                .when('/available-forms', {
-                    title: 'Welcome Page',
-                    templateUrl: 'templates/available-forms.html',
-                    controller: 'AvailableFmCtrl'
-                })
-                .when('/view-form/:FmNum', {
-                    title: 'Forms',
-                    templateUrl:'templates/fill-form.html',
-                    controller: 'FillFormCtrl'
-                })
-                .when('/submited-forms', {
-                    title: 'Submited Forms',
-                    templateUrl:'templates/submited-forms.html',
-                    controller: 'SubFormCtrl'
-                })
-                .otherwise({
-                    redirectTo: '/'
-                });
-                
-  }]);
+
+
+
+
+app.config( ['$routeProvider', function($routeProvider) {
+
+    $routeProvider
+    .when('/', {
+        title: 'Welcome Page',
+        templateUrl: 'templates/home.php'
+    })
+    .when('/available-forms', {
+        title: 'Welcome Page',
+        templateUrl: 'templates/available-forms.html',
+        controller: 'AvailableFmCtrl'
+    })
+    .when('/view-form/:FmNum', {
+        title: 'Forms',
+        templateUrl:'templates/fill-form.html',
+        controller: 'FillFormCtrl'
+    })
+    .when('/submited-forms', {
+        title: 'Submited Forms',
+        templateUrl:'templates/submited-forms.html',
+        controller: 'SubFormCtrl'
+    })
+    .otherwise({
+        redirectTo: '/'
+    });
+
+}]);
 

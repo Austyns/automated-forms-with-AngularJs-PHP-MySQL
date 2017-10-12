@@ -1,44 +1,43 @@
 
-   
-      <div class="container">
-       
-      <div class="col-md-10">
+
+<div class="container">
+
+    <div class="col-md-10">
         <h2>Available Forms  </h2>
         <table class="table table-hover">
-        <thead>
-          <tr>
-              <th data-field="id">S/N</th>
-              <th data-field="name">Title</th>
-              <th data-field="name">Description</th>
-              <th data-field="button"></th>
-          </tr>
-        </thead>
+            <thead>
+                <tr>
+                    <th data-field="id">S/N</th>
+                    <th data-field="name">Title</th>
+                    <th data-field="name">Description</th>
+                    <th data-field="button"></th>
+                </tr>
+            </thead>
 
-        <tbody class="feed-user">                 
-            <tr ng-repeat="key in fom.fm">
-               <td>{{$index + 1}}</td>
-                <td>{{key.fm_title}}</td>
-                <td>{{key.fm_discrip}}</td>
-                <td><a target="_blank" href="#/view-form/{{key.fm_id}}" class="btn btn-success">View &amp; Fill</a></td>
-              </tr>
-          <tr>
-                <!-- <td><div id="show_more_main10" class="show_more_main">
-            <button class="show_more btn btn-primary" value="10" id="loads"> Load More </button><button hidden="" value="6" id="last_sn"></button>
-                <span style="display: none;" class="loding"><span class="loding_txt">Loading...</span></span> </div>
-                </td> -->
-                <td></td>
-                <td></td>
-               </tr>
-        </tbody>
-      </table>
-      </div>
-      
+            <tbody class="feed-user">                 
+                <tr ng-repeat="key in fom.fm">
+                    <td>{{$index + 1}}</td>
+                    <td>{{key.fm_title}}</td>
+                    <td>{{key.fm_discrip}}</td>
+                    <td><a target="_blank" href="#/view-form/{{key.fm_id}}" class="btn btn-success">View &amp; Fill</a></td>
+                </tr>
+                <tr>
+                    <!-- <td><div id="show_more_main10" class="show_more_main">
+                    <button class="show_more btn btn-primary" value="10" id="loads"> Load More </button><button hidden="" value="6" id="last_sn"></button>
+                    <span style="display: none;" class="loding"><span class="loding_txt">Loading...</span></span> </div>
+                    </td> -->
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
-    </div> <!-- /container -->
 
-    
-    <!-- Bootstrap core JavaScript
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    

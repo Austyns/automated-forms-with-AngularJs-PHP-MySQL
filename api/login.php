@@ -11,35 +11,21 @@ if ($_REQUEST) {
 	$data = array();
 	// Getting posted data and decodeing json
 	$_POST = json_decode(file_get_contents('php://input'), true);
-// 	print_r($_POST) ;
-// die();
-// exit() ;
-		// checking for blank values.
-		if (empty($_POST['email']))
-		  $errors['email'] = 'Email is required.';
 
-		if (empty($_POST['password']))
-		  $errors['password'] = 'password is required.';
+	// checking for blank values.
+	if (empty($_POST['email']))
+	  $errors['email'] = 'Email is required.';
 
-		if (!empty($errors)) {
-		  $data['errors']  = $errors;
-		} else {
+	if (empty($_POST['password']))
+	  $errors['password'] = 'password is required.';
 
-			$data = LoginClients($connection,$_POST['email'],$_POST['password'])  ;
-			
-			// print_r($response) ;	
-			//  die();
-			}
-			// else{
+	if (!empty($errors)) {
+		$data['errors']  = $errors;
+	}else {
 
-			//   $data['message'] = 'Login was Unsuccessful';
-			// }
+		$data = LoginClients($connection,$_POST['email'],$_POST['password'])  ;
+		
+	}
 
-		echo json_encode($data); 
-		}
-		// response back.
-
-// 	}
-
-	
-// }
+	echo json_encode($data); 
+}

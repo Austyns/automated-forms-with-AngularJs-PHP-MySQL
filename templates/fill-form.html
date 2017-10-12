@@ -1,99 +1,98 @@
-    <div class="container">
-	
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="col-md-6">
-      <div class="container">
-        <div class="col-md-10" >
-        <h2>{{fields.fd[0].form_name}} </h2>
+<div class="container">
 
-        <form class="form-horizontal" method="POST" ng-submit="ProcessForm()">
-          
-            <!-- Form ID  -->
-            <!-- <input type="text"  data-ng-model="key[fields.fd[0].fd_form]" > -->
-                  <div class="form-group" ng-repeat="key in fields.fd">
-                  
-                  <!-- To show if the input type is text  -->
-                    <div  ng-show="key.typ_name === 'text'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                            <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" >
-                               <!--  {{key.field}} -->
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="col-md-6">
+        <div class="container">
+            <div class="col-md-10" >
+                <h2>{{fields.fd[0].form_name}} </h2>
+
+                <form class="form-horizontal" method="POST" ng-submit="ProcessForm()">
+
+                    <!-- Form ID  -->
+                    <!-- <input type="text"  data-ng-model="key[fields.fd[0].fd_form]" > -->
+                    <div class="form-group" ng-repeat="key in fields.fd">
+
+                        <!-- To show if the input type is text  -->
+                        <div  ng-show="key.typ_name === 'text'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" >
+                                <!--  {{key.field}} -->
                             </div>
-                          </div>
+                        </div>
 
 
-                  <!-- To show if the input type is email  -->
-                    <div  ng-show="key.typ_name === 'email'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                            <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]"  validate>
-                               <!--  {{key.field}} -->
+                        <!-- To show if the input type is email  -->
+                        <div  ng-show="key.typ_name === 'email'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]"  validate>
+                                <!--  {{key.field}} -->
                             </div>
-                       </div>
+                        </div>
 
 
-                  <!-- To show if the input type is password  -->
-                    <div  ng-show="key.typ_name === 'password'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                            <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}"  ng-model="formData.params[key.fd_id]" >
-                               <!--  {{key.field}} -->
+                        <!-- To show if the input type is password  -->
+                        <div  ng-show="key.typ_name === 'password'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}"  ng-model="formData.params[key.fd_id]" >
+                                <!--  {{key.field}} -->
                             </div>
-                       </div>
+                        </div>
 
 
 
-                  <!-- To show if the input type is number  -->
-                    <div  ng-show="key.typ_name === 'number'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                            <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" validate>
-                               <!--  {{key.field}} -->
+                        <!-- To show if the input type is number  -->
+                        <div  ng-show="key.typ_name === 'number'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" validate>
+                                <!--  {{key.field}} -->
                             </div>
-                       </div>
+                        </div>
 
 
 
-                  <!-- To show if the input type is textarea  --> 
-                    <div  ng-show="key.typ_name === 'textarea'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                          <textarea class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" > </textarea>
-                            <!-- <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" > -->
-                               <!--  {{key.field}} -->
+                        <!-- To show if the input type is textarea  --> 
+                        <div  ng-show="key.typ_name === 'textarea'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <textarea class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" > </textarea>
+                                <!-- <input type="{{key.typ_name}}" placeholder="{{key.fd_discrip}}" > -->
+                                <!--  {{key.field}} -->
                             </div>
-                       </div>
+                        </div>
 
 
-                  <!-- To show if the input type is select  -->
-                    <div  ng-show="key.typ_name === 'select'" >
-                      <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
-                          <div class="controls">
-                            <select class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" >
-                            <option>{{key.fd_discrip}}</option>                             
-                            </select>
-                            <!-- <input type="{{key.typ_name}}" placeholder=""> -->
-                               <!--  {{key.field}} -->
+                        <!-- To show if the input type is select  -->
+                        <div  ng-show="key.typ_name === 'select'" >
+                            <label class="control-label" for="typeahead"> {{key.fd_title}}</label>
+                            <div class="controls">
+                                <select class="form-control" name="{{key.fd_name}}" ng-model="formData.params[key.fd_id]" >
+                                    <option>{{key.fd_discrip}}</option>                             
+                                </select>
+                                <!-- <input type="{{key.typ_name}}" placeholder=""> -->
+                                <!--  {{key.field}} -->
                             </div>
-                       </div>
+                        </div>
 
-                  </div>
-
-
-            <input type="submit" class="btn btn-success btn-block" value="Submit">
-
-        </form>
-          
-       </div>
-      
+                    </div>
 
 
-    </div> <!-- /container -->
+                    <input type="submit" class="btn btn-success btn-block" value="Submit">
+
+                </form>
+
+            </div>
+
+
+
+        </div> <!-- /container -->
     </div>
-    </div>
+</div>
 
-    
-    <!-- Bootstrap core JavaScript
+
+<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    

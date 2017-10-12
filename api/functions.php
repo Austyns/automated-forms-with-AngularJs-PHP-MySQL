@@ -369,33 +369,33 @@ function GetSubmitedForms($db){
 
     // if ($row['status'] == 'success') {
     if ($row) {
-          $fields  = $row['data']; 
-          // print_r(json_encode($fields)) ;
-          // exit() ;
-          // die();
-          $a =  '[' ;
-          foreach ($fields as $key) {
-          $sf_form  = $key['sf_form'];  
-          $fm_title  = $key['fm_title'];
+      $fields  = $row['data']; 
+      // print_r(json_encode($fields)) ;
+      // exit() ;
+      // die();
+      $a =  '[' ;
+      foreach ($fields as $key) {
+      $sf_form  = $key['sf_form'];  
+      $fm_title  = $key['fm_title'];
 
-            if ($a != "[") { $a .= " , "; }
-            // $fid = CheckAndCreateField($fd_type,$fd_name,$fd_discrip) ;
-            $details = GetEachSubmitedFormsParams($db,$sf_form) ;
-            // if ($key['fd_type'] == 1) { $a .= " "; }
-               $a .= '{"sf_form" : "'.$sf_form.'" ,"fm_title" : "'.$fm_title.'" , "details" : '.$details.' } ' ; 
-              }
-            $a .= " ]" ;
-
+        if ($a != "[") { $a .= " , "; }
+        // $fid = CheckAndCreateField($fd_type,$fd_name,$fd_discrip) ;
+        $details = GetEachSubmitedFormsParams($db,$sf_form) ;
+        // if ($key['fd_type'] == 1) { $a .= " "; }
+           $a .= '{"sf_form" : "'.$sf_form.'" ,"fm_title" : "'.$fm_title.'" , "details" : '.$details.' } ' ; 
           }
-           print_r(($a));
-    }
+        $a .= " ]" ;
+
+      }
+       print_r(($a));
+}
 
 // Function to get Submited Form Details 
 
-    function GetEachSubmitedFormsParams($db,$sf_form){
-        $row = $db->select("submited_forms LEFT JOIN form_fields ON submited_forms.sf_form_field = form_fields.fd_id LEFT JOIN form_field_type ON form_fields.fd_type = form_field_type.typ_id", array('sf_form' => "$sf_form") );
-       return (json_encode($row['data']));
-    }
+function GetEachSubmitedFormsParams($db,$sf_form){
+    $row = $db->select("submited_forms LEFT JOIN form_fields ON submited_forms.sf_form_field = form_fields.fd_id LEFT JOIN form_field_type ON form_fields.fd_type = form_field_type.typ_id", array('sf_form' => "$sf_form") );
+   return (json_encode($row['data']));
+}
 
 
 
